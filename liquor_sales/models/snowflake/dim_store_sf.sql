@@ -4,7 +4,6 @@ SELECT
     address,
     city,
     zip_code,
-    county_number,
-    county
+    county_number
 FROM {{ ref('store_snapshot') }}
 WHERE CURRENT_TIMESTAMP > dbt_valid_from and dbt_valid_to IS NULL

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_bikeshare_trips
+    description: "Fact table for bikeshare trips."
+    columns:
+      - name: trip_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: start_station_id
+        description: "the foreign key to the station dimension table"
+        tests:
+          - not_null
+      - name: end_station_id
+        description: "the foreign key to the station dimension table"
+        tests:
+          - not-null

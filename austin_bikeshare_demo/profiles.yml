@@ -1,0 +1,15 @@
+# https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup
+austin_bikeshare_demo: # dbt_demo name. This is where dbt looks for from dbt_project.yml -> find the named profile here. Can also be overwritten by dbt run --profiles. See dbt run --help for more info
+  target: bike_bq # default target for profile, points to 1 of the output below # define target in dbt CLI via --target
+  outputs:
+    bike_bq:
+      threads: 1
+      location: US
+      priority: interactive
+      type: bigquery
+      method: oauth
+      project: "pizza-skxw" # GCP project id
+      dataset: "austin_bikeshare_demo"
+      retries: 2
+  config:
+    send_anonymous_usage_stats: False
